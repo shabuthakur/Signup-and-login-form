@@ -1,0 +1,79 @@
+
+
+
+<div class="row justify-content-center">
+<div class="col-md-6">
+<div class="card">
+<header class="card-header">
+	<h4 class="card-title mt-2">Sign up</h4>
+</header>
+<article class="card-body">
+	<form [formGroup]="myform" (ngSubmit)="onSubmit(myform)">
+		<div class="form-row">
+			<div class="col form-group">
+				<label>First name </label>   
+		  		<input type="text" class="form-control" name='firstname' formControlName="firstname">
+			</div> <!-- form-group end.// -->
+			<div
+              class="alert alert-danger"
+              *ngIf="
+                !myform.controls['firstname'].valid && myform.controls['firstname'].touched
+              "
+            >reqired</div>
+			<div class="col form-group">
+			<label>Last name</label>
+		  	<input type="text" class="form-control" name='lastname' formControlName="lastname">
+		</div>
+		<div
+              class="alert alert-danger"
+              *ngIf="
+                !myform.controls['lastname'].valid && myform.controls['lastname'].touched
+              "
+            >reqired</div> <!-- form-group end.// -->
+	</div> <!-- form-row end.// -->
+	<div class="form-group">
+		<label>Email address</label>
+		<input type="email" class="form-control" name='email' formControlName="email">
+		<small class="form-text text-muted">We'll never share your email with anyone else.</small>
+	</div> 
+	<div
+              class="alert alert-danger"
+              *ngIf="
+                !myform.controls['email'].valid && myform.controls['email'].touched
+              "
+            >reqired</div>
+	<div class="form-group">
+		<label>Create password</label>
+	    <input class="form-control" type="password" name='pwd' formControlName="pwd">
+	</div>
+	<div
+              class="alert alert-danger"
+              *ngIf="
+                !myform.controls['pwd'].valid && myform.controls['pwd'].touched
+              "
+            >reqired</div>
+    <div class="form-group">
+		<label>Confirm password</label>
+	    <input class="form-control" type="password" name='cpwd' formControlName="cpwd">
+	</div>
+	<div
+              class="alert alert-danger"
+              *ngIf="
+                !myform.controls['cpwd'].valid && myform.controls['cpwd'].touched
+              "
+            >reqired</div><br> <!-- form-group end.// -->  
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Register  </button>
+    </div>      
+</form>
+</article> 
+</div> 
+</div> 
+
+</div> 
+
+
+
+
+<div class="alert alert-danger" *ngIf="message.length > 0">{{message}}</div>
+<div class="alert alert-danger" *ngIf="userError">{{userError.message}}</div>
